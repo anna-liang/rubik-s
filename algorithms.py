@@ -25,6 +25,20 @@ def apply_move(faces, move):
         faces[2][0:3] = faces[3][0:3]
         faces[3][0:3] = faces[4][0:3]
         faces[4][0:3] = temp
+    elif move == Moves.L:
+        temp = [faces[0][0], faces[0][3], faces[0][6]]
+        faces[0][0] = faces[3][8]
+        faces[0][3] = faces[3][5]
+        faces[0][6] = faces[3][2]
+        faces[3][2] = faces[5][0]
+        faces[3][5] = faces[5][3]
+        faces[3][8] = faces[5][6]
+        faces[5][0] = faces[1][0]
+        faces[5][3] = faces[1][3]
+        faces[5][6] = faces[1][6]
+        faces[1][0] = temp[0]
+        faces[1][3] = temp[1]
+        faces[1][6] = temp[2]
 
 def cross():
     """
