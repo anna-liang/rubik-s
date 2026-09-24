@@ -1,8 +1,19 @@
 import check, algorithms, scramble, random
+from model.cube import Cube, Colour
 
 def build_cube():
-    # Function to build a cube
-    pass  # Replace with actual implementation
+    """
+    Build the cube representation.
+    This function initializes the cube to its solved state.
+    """
+    top = [Colour.WHITE] * 9
+    front = [Colour.RED] * 9
+    left = [Colour.GREEN] * 9
+    back = [Colour.ORANGE] * 9
+    right = [Colour.BLUE] * 9
+    bottom = [Colour.YELLOW] * 9
+    cube = Cube([top, front, left, back, right, bottom])
+    return cube
 
 def solve():
     if not check.is_cross_complete():
@@ -18,6 +29,9 @@ def solve():
 
 
 if __name__ == "__main__":
-    scramble.scramble(random.randint(10, 30))  # Scramble the cube with a random number of moves between 10 and 30
-    build_cube()
-    solve()
+    # scramble.scramble(random.randint(10, 30))  # Scramble the cube with a random number of moves between 10 and 30
+    cube = build_cube()
+    print(cube)
+    # algorithms.apply_move(cube, 'U')
+    # print(cube)
+    # solve()
