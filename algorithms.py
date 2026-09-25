@@ -150,6 +150,83 @@ def apply_move(faces, move):
             faces[4][2] = temp[0]
             faces[4][5] = temp[1]
             faces[4][8] = temp[2]
+        case Moves.M:
+            temp = [faces[0][1], faces[0][4], faces[0][7]]
+            faces[0][1] = faces[1][1]
+            faces[0][4] = faces[1][4]
+            faces[0][7] = faces[1][7]
+            faces[1][1] = faces[5][1]
+            faces[1][4] = faces[5][4]
+            faces[1][7] = faces[5][7]
+            faces[5][1] = faces[3][7]
+            faces[5][4] = faces[3][4]
+            faces[5][7] = faces[3][1]
+            faces[3][1] = temp[2]
+            faces[3][4] = temp[1]
+            faces[3][7] = temp[0]
+        case Moves.M_PRIME:
+            temp = [faces[0][1], faces[0][4], faces[0][7]]
+            faces[0][1] = faces[3][7]
+            faces[0][4] = faces[3][4]
+            faces[0][7] = faces[3][1]
+            faces[3][1] = faces[5][7]
+            faces[3][4] = faces[5][4]
+            faces[3][7] = faces[5][1]
+            faces[5][1] = faces[1][1]
+            faces[5][4] = faces[1][4]
+            faces[5][7] = faces[1][7]
+            faces[1][1] = temp[0]
+            faces[1][4] = temp[1]
+            faces[1][7] = temp[2]
+        case Moves.L_WIDE_PRIME:
+            temp = [[faces[0][0], faces[0][1]], [faces[0][3], faces[0][4]], [faces[0][6], faces[0][7]]]
+            faces[0][0], faces[0][1] = faces[1][0], faces[1][1]
+            faces[0][3], faces[0][4] = faces[1][3], faces[1][4]
+            faces[0][6], faces[0][7] = faces[1][6], faces[1][7]
+            faces[1][0], faces[1][1] = faces[5][0], faces[5][1]
+            faces[1][3], faces[1][4] = faces[5][3], faces[5][4]
+            faces[1][6], faces[1][7] = faces[5][6], faces[5][7]
+            faces[5][0], faces[5][1] = faces[3][8], faces[3][7]
+            faces[5][3], faces[5][4] = faces[3][5], faces[3][4]
+            faces[5][6], faces[5][7] = faces[3][2], faces[3][1]
+            faces[3][2], faces[3][1] = temp[2]
+            faces[3][5], faces[3][4] = temp[1]
+            faces[3][8], faces[3][7] = temp[0]
+        case Moves.R_WIDE_PRIME:
+            temp = [[faces[0][1], faces[0][2]], [faces[0][4], faces[0][5]], [faces[0][7], faces[0][8]]]
+            faces[0][1], faces[0][2] = faces[1][1], faces[1][2]
+            faces[0][4], faces[0][5] = faces[1][4], faces[1][5]
+            faces[0][7], faces[0][8] = faces[1][7], faces[1][8]
+            faces[1][1], faces[1][2] = faces[5][1], faces[5][2]
+            faces[1][4], faces[1][5] = faces[5][4], faces[5][5]
+            faces[1][7], faces[1][8] = faces[5][7], faces[5][8]
+            faces[5][1], faces[5][2] = faces[3][7], faces[3][6]
+            faces[5][4], faces[5][5] = faces[3][4], faces[3][3]
+            faces[5][7], faces[5][8] = faces[3][1], faces[3][0]
+            faces[3][1], faces[3][0] = temp[2]
+            faces[3][4], faces[3][3] = temp[1]
+            faces[3][7], faces[3][6] = temp[0]
+        case Moves.X:
+            # clockwise along R
+            temp = faces[0]
+            faces[0] = faces[1]
+            faces[1] = faces[5]
+            faces[5] = faces[3]
+            faces[3] = temp
+        case Moves.Y:
+            # clockwise along U
+            temp = faces[1]
+            faces[1] = faces[4]
+            faces[4] = faces[3]
+            faces[3] = faces[2]
+            faces[2] = temp
+        case Moves.Z:
+            # clockwise along F
+            temp = faces[0]
+            faces[0] = faces[2]
+            faces[2] = faces[5]
+            faces[5] = faces[4]
+            faces[4] = temp
         case _:
             raise ValueError(f"Move {move} not implemented yet.")
 
