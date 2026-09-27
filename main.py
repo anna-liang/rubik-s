@@ -1,6 +1,6 @@
-import check, algorithms, scramble, random
+import check, algorithms.algorithms as algorithms, random
 from model.cube import Cube, Colour
-from model.algorithm import Moves
+from constants.algorithm import Moves
 
 def build_cube():
     """
@@ -33,6 +33,7 @@ if __name__ == "__main__":
     # scramble.scramble(random.randint(10, 30))  # Scramble the cube with a random number of moves between 10 and 30
     cube = build_cube()
     # print(cube)
-    algorithms.apply_move(cube.faces, Moves.U_PRIME)
+    check.is_cube_solved(cube)
+    # algorithms.apply_move(cube.faces, Moves.U_PRIME)
     print(cube)
     # solve()

@@ -1,12 +1,12 @@
 import unittest
-import algorithms
-from model.cube import Colour
-from model.algorithm import Moves
+import algorithms.algorithms as algorithms
+from model.cube import Colour, Cube
+from constants.algorithm import Moves
 
 class TestAlgorithmsScrambled(unittest.TestCase):
     def setUp(self):
         # Scramble Algo: L' B R' B2 L2 D B U R B2 L F2 U2 R' B2 R' F2 R B2 L' B' L
-        self.initial_cube_faces = [
+        self.initial_cube = Cube([
             [
                 Colour.RED, Colour.BLUE, Colour.BLUE,
                 Colour.GREEN, Colour.WHITE, Colour.YELLOW,
@@ -37,10 +37,10 @@ class TestAlgorithmsScrambled(unittest.TestCase):
                 Colour.YELLOW, Colour.YELLOW, Colour.WHITE,
                 Colour.RED, Colour.RED, Colour.GREEN
             ]
-        ]
+        ])
 
     def test_apply_move_4_times(self):
-        expected_faces_after_B_wide = [
+        expected_faces = [
             [
                 Colour.RED, Colour.BLUE, Colour.BLUE,
                 Colour.GREEN, Colour.WHITE, Colour.YELLOW,
@@ -73,15 +73,15 @@ class TestAlgorithmsScrambled(unittest.TestCase):
             ]
         ]
         for move in Moves:
-            algorithms.apply_move(self.initial_cube_faces, move)
-            algorithms.apply_move(self.initial_cube_faces, move)
-            algorithms.apply_move(self.initial_cube_faces, move)
-            algorithms.apply_move(self.initial_cube_faces, move)
+            algorithms.apply_move(self.initial_cube, move)
+            algorithms.apply_move(self.initial_cube, move)
+            algorithms.apply_move(self.initial_cube, move)
+            algorithms.apply_move(self.initial_cube, move)
             
-            self.assertEqual(self.initial_cube_faces, expected_faces_after_B_wide, f"Applying {move} 4 times does not revert to original")
+            self.assertEqual(self.initial_cube.faces, expected_faces, f"Applying {move} 4 times does not revert to original")
 
     def test_apply_U_move(self):
-        algorithms.apply_move(self.initial_cube_faces, Moves.U)
+        algorithms.apply_move(self.initial_cube, Moves.U)
         expected_faces_after_U = [
             [
                 Colour.RED, Colour.BLUE, Colour.BLUE,
@@ -114,10 +114,10 @@ class TestAlgorithmsScrambled(unittest.TestCase):
                 Colour.RED, Colour.RED, Colour.GREEN
             ]
         ]
-        self.assertEqual(self.initial_cube_faces, expected_faces_after_U, "The faces are incorrect for U move")
+        self.assertEqual(self.initial_cube.faces, expected_faces_after_U, "The faces are incorrect for U move")
 
     def test_apply_U_prime_move(self):
-        algorithms.apply_move(self.initial_cube_faces, Moves.U_PRIME)
+        algorithms.apply_move(self.initial_cube, Moves.U_PRIME)
         expected_faces_after_U_prime = [
             [
                 Colour.RED, Colour.BLUE, Colour.BLUE,
@@ -150,7 +150,7 @@ class TestAlgorithmsScrambled(unittest.TestCase):
                 Colour.RED, Colour.RED, Colour.GREEN
             ]
         ]
-        self.assertEqual(self.initial_cube_faces, expected_faces_after_U_prime, "The faces are incorrect for U' move")
+        self.assertEqual(self.initial_cube.faces, expected_faces_after_U_prime, "The faces are incorrect for U' move")
 
 if __name__ == '__main__':
     unittest.main()
