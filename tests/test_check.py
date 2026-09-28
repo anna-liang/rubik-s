@@ -73,6 +73,130 @@ class TestAlgorithms(unittest.TestCase):
         ])
         self.assertFalse(check.is_cross_complete(cube))
 
+    def test_f2l_complete(self):
+        cube = Cube([
+            [
+                Colour.GREEN, Colour.ORANGE, Colour.RED,
+                Colour.BLUE, Colour.WHITE, Colour.WHITE,
+                Colour.ORANGE, Colour.WHITE, Colour.WHITE
+            ],
+            [
+                Colour.WHITE, Colour.GREEN, Colour.BLUE,
+                Colour.RED, Colour.RED, Colour.RED,
+                Colour.RED, Colour.RED, Colour.RED,
+            ],
+            [
+                Colour.WHITE, Colour.WHITE, Colour.GREEN,
+                Colour.GREEN, Colour.GREEN, Colour.GREEN,
+                Colour.GREEN, Colour.GREEN, Colour.GREEN
+            ],
+            [
+                Colour.WHITE, Colour.WHITE, Colour.RED,
+                Colour.ORANGE, Colour.ORANGE, Colour.ORANGE,
+                Colour.ORANGE, Colour.ORANGE, Colour.ORANGE
+            ],
+            [
+                Colour.ORANGE, Colour.RED, Colour.BLUE,
+                Colour.BLUE, Colour.BLUE, Colour.BLUE,
+                Colour.BLUE, Colour.BLUE, Colour.BLUE,
+            ],
+            [
+                Colour.YELLOW, Colour.YELLOW, Colour.YELLOW,
+                Colour.YELLOW, Colour.YELLOW, Colour.YELLOW,
+                Colour.YELLOW, Colour.YELLOW, Colour.YELLOW
+            ]
+        ])
+        self.assertTrue(check.is_f2l_complete(cube))
+
+    def test_f2l_not_complete(self):
+        cube = Cube([
+            [
+                Colour.RED, Colour.RED, Colour.ORANGE,
+                Colour.BLUE, Colour.WHITE, Colour.BLUE,
+                Colour.ORANGE, Colour.WHITE, Colour.RED
+            ],
+            [
+                Colour.WHITE, Colour.GREEN, Colour.BLUE,
+                Colour.RED, Colour.RED, Colour.ORANGE,
+                Colour.RED, Colour.RED, Colour.RED,
+            ],
+            [
+                Colour.GREEN, Colour.RED, Colour.GREEN,
+                Colour.GREEN, Colour.GREEN, Colour.GREEN,
+                Colour.GREEN, Colour.GREEN, Colour.GREEN
+            ],
+            [
+                Colour.BLUE, Colour.WHITE, Colour.WHITE,
+                Colour.ORANGE, Colour.ORANGE, Colour.ORANGE,
+                Colour.ORANGE, Colour.ORANGE, Colour.ORANGE
+            ],
+            [
+                Colour.WHITE, Colour.WHITE, Colour.WHITE,
+                Colour.WHITE, Colour.BLUE, Colour.BLUE,
+                Colour.BLUE, Colour.BLUE, Colour.BLUE,
+            ],
+            [Colour.YELLOW] * 9,
+        ])
+        self.assertFalse(check.is_f2l_complete(cube))
+
+    def test_oll_complete(self):
+        cube = Cube([
+            [Colour.WHITE] * 9,
+            [
+                Colour.BLUE, Colour.RED, Colour.GREEN,
+                Colour.RED, Colour.RED, Colour.RED,
+                Colour.RED, Colour.RED, Colour.RED,
+            ],
+            [
+                Colour.GREEN, Colour.GREEN, Colour.RED,
+                Colour.GREEN, Colour.GREEN, Colour.GREEN,
+                Colour.GREEN, Colour.GREEN, Colour.GREEN
+            ],
+            [
+                Colour.ORANGE, Colour.BLUE, Colour.ORANGE,
+                Colour.ORANGE, Colour.ORANGE, Colour.ORANGE,
+                Colour.ORANGE, Colour.ORANGE, Colour.ORANGE
+            ],
+            [
+                Colour.RED, Colour.ORANGE, Colour.BLUE,
+                Colour.BLUE, Colour.BLUE, Colour.BLUE,
+                Colour.BLUE, Colour.BLUE, Colour.BLUE,
+            ],
+            [Colour.YELLOW] * 9
+        ])
+        self.assertTrue(check.is_oll_complete(cube))
+
+    def test_oll_not_complete(self):
+        cube = Cube([
+            [
+                Colour.RED, Colour.WHITE, Colour.RED,
+                Colour.WHITE, Colour.WHITE, Colour.WHITE,
+                Colour.GREEN, Colour.WHITE, Colour.BLUE
+            ],
+            [
+                Colour.ORANGE, Colour.RED, Colour.ORANGE,
+                Colour.RED, Colour.RED, Colour.RED,
+                Colour.RED, Colour.RED, Colour.RED,
+            ],
+            [
+                Colour.WHITE, Colour.GREEN, Colour.WHITE,
+                Colour.GREEN, Colour.GREEN, Colour.GREEN,
+                Colour.GREEN, Colour.GREEN, Colour.GREEN
+            ],
+            [
+                Colour.GREEN, Colour.BLUE, Colour.BLUE,
+                Colour.ORANGE, Colour.ORANGE, Colour.ORANGE,
+                Colour.ORANGE, Colour.ORANGE, Colour.ORANGE
+            ],
+            [
+                Colour.WHITE, Colour.ORANGE, Colour.WHITE,
+                Colour.BLUE, Colour.BLUE, Colour.BLUE,
+                Colour.BLUE, Colour.BLUE, Colour.BLUE,
+            ],
+            [Colour.YELLOW] * 9
+        ])
+        self.assertFalse(check.is_oll_complete(cube))
+
     def test_solved_cube(self):
         cube = Cube([
             [Colour.BLUE] * 9, 

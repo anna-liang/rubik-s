@@ -15,6 +15,13 @@ def is_f2l_complete(cube):
     Returns True if the F2L is complete, False otherwise.
     """
     faces = cube.faces
+    # check bottom face is completely done
+    bottom_face_complete = all(x == faces[5][0] for x in faces[5])
+    # check first two rows on all sides are done ([i][3:] where i from 1-4, all same colours for every i)
+    for i in range(1, 5):
+        if not all(x == faces[i][4] for x in faces[i][3:]):
+            return False
+    return bottom_face_complete
 
 def is_oll_complete(cube):
     """
@@ -22,6 +29,10 @@ def is_oll_complete(cube):
     Returns True if the OLL is complete, False otherwise.
     """
     faces = cube.faces
+    # check top face is completely done
+    top_face_complete = all(x == faces[0][0] for x in faces[0])
+    return top_face_complete
+
 
 def is_cube_solved(cube):
     """
