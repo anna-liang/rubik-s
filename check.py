@@ -1,35 +1,27 @@
 from model.cube import Colour
 
-def is_cross_complete():
+def is_cross_complete(cube):
     """
     Check if the cross is complete.
     Returns True if the cross is complete, False otherwise.
     """
-    # Implementation logic here
-    pass
+    faces = cube.faces
+    return (faces[5][4] == faces[5][1] and faces[5][4] == faces[5][3] and
+        faces[5][4] == faces[5][7] and faces[5][4] == faces[5][5])
 
-def is_f2l_complete():
+def is_f2l_complete(cube):
     """
     Check if the F2L (First Two Layers) is complete.
     Returns True if the F2L is complete, False otherwise.
     """
-    # Implementation logic here
-    pass
+    faces = cube.faces
 
-def is_oll_complete():
+def is_oll_complete(cube):
     """
     Check if the OLL (Orientation of the Last Layer) is complete.
     Returns True if the OLL is complete, False otherwise.
     """
-    # Implementation logic here
-    pass
-
-# def is_pll_complete():
-#     """
-#     Check if the PLL (Permutation of the Last Layer) is complete.
-#     Returns True if the PLL is complete, False otherwise.
-#     """
-#     # PLL is completed when cube is solved
+    faces = cube.faces
 
 def is_cube_solved(cube):
     """
