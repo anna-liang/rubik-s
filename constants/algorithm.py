@@ -21,7 +21,7 @@ class Moves(Enum):
     # D_WIDE_PRIME = 17
     # L_WIDE = 18
     L_WIDE_PRIME = 19
-    # R_WIDE = 20
+    R_WIDE = 20
     R_WIDE_PRIME = 21
     F_WIDE = 22
     F_WIDE_PRIME = 23

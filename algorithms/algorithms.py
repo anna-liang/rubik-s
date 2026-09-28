@@ -230,7 +230,7 @@ def apply_move(cube, move):
             faces[3][5], faces[3][4] = temp[1]
             faces[3][8], faces[3][7] = temp[0]
             ccw(faces[2])
-        case Moves.R_WIDE_PRIME:
+        case Moves.R_WIDE:
             temp = [[faces[0][1], faces[0][2]], [faces[0][4], faces[0][5]], [faces[0][7], faces[0][8]]]
             faces[0][1], faces[0][2] = faces[1][1], faces[1][2]
             faces[0][4], faces[0][5] = faces[1][4], faces[1][5]
@@ -244,6 +244,21 @@ def apply_move(cube, move):
             faces[3][1], faces[3][0] = temp[2]
             faces[3][4], faces[3][3] = temp[1]
             faces[3][7], faces[3][6] = temp[0]
+            ccw(faces[4])
+        case Moves.R_WIDE_PRIME:
+            temp = [[faces[0][1], faces[0][2]], [faces[0][4], faces[0][5]], [faces[0][7], faces[0][8]]]
+            faces[0][1], faces[0][2] = faces[3][7], faces[3][6]
+            faces[0][4], faces[0][5] = faces[3][4], faces[3][3]
+            faces[0][7], faces[0][8] = faces[3][1], faces[3][0]
+            faces[3][0], faces[3][1] = faces[5][8], faces[5][7]
+            faces[3][3], faces[3][4] = faces[5][5], faces[5][4]
+            faces[3][6], faces[3][7] = faces[5][2], faces[5][1]
+            faces[5][1], faces[5][2] = faces[1][1], faces[1][2]
+            faces[5][4], faces[5][5] = faces[1][4], faces[1][5]
+            faces[5][7], faces[5][8] = faces[1][7], faces[1][8]
+            faces[1][1], faces[1][2] = temp[0]
+            faces[1][4], faces[1][5] = temp[1]
+            faces[1][7], faces[1][8] = temp[2]
             ccw(faces[4])
         case Moves.F_WIDE:
             temp = [[faces[0][6], faces[0][3]], [faces[0][7], faces[0][4]], [faces[0][8], faces[0][5]]]
