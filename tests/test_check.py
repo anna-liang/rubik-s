@@ -2,7 +2,7 @@ import unittest
 import check
 from model.cube import Colour, Cube
 
-class TestAlgorithms(unittest.TestCase):
+class TestAlgorithmsCheck(unittest.TestCase):
     def test_cross_complete(self):
         cube = Cube([
             [

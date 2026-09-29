@@ -2,7 +2,7 @@ import unittest
 import algorithms.oll as oll_algorithms
 from model.cube import Colour, Cube
 
-class TestPLL(unittest.TestCase):
+class TestOLL(unittest.TestCase):
     def test_dot(self):
         initial_faces = [
             [
