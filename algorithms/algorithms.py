@@ -277,18 +277,18 @@ def apply_move(cube, move):
             cw(faces[1])
         case Moves.F_WIDE_PRIME:
             temp = [[faces[0][6], faces[0][3]], [faces[0][7], faces[0][4]], [faces[0][8], faces[0][5]]]
-            faces[0][3], faces[0][6] = faces[4][0], faces[4][1]
-            faces[0][4], faces[0][7] = faces[4][3], faces[4][4]
-            faces[0][5], faces[0][8] = faces[4][6], faces[4][7]
+            faces[0][3], faces[0][6] = faces[4][1], faces[4][0]
+            faces[0][4], faces[0][7] = faces[4][4], faces[4][3]
+            faces[0][5], faces[0][8] = faces[4][7], faces[4][6]
             faces[4][0], faces[4][1] = faces[5][2], faces[5][5]
             faces[4][3], faces[4][4] = faces[5][1], faces[5][4]
             faces[4][6], faces[4][7] = faces[5][0], faces[5][3]
             faces[5][0], faces[5][3] = faces[2][1], faces[2][2]
             faces[5][1], faces[5][4] = faces[2][4], faces[2][5]
             faces[5][2], faces[5][5] = faces[2][7], faces[2][8]
-            faces[2][1], faces[2][2] = temp[2]
-            faces[2][4], faces[2][5] = temp[1]
-            faces[2][7], faces[2][8] = temp[0]
+            faces[2][2], faces[2][1] = temp[2]
+            faces[2][5], faces[2][4] = temp[1]
+            faces[2][8], faces[2][7] = temp[0]
             ccw(faces[1])
         case Moves.X:
             # clockwise along R
