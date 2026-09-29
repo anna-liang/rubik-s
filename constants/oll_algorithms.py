@@ -5,8 +5,7 @@ dot = [
 ]
 
 l = [
-    Moves.F, Moves.R, Moves.U, Moves.R_PRIME, Moves.U_PRIME,
-    Moves.R, Moves.U, Moves.R_PRIME, Moves.U_PRIME, Moves.F_PRIME
+    Moves.F_WIDE, Moves.R, Moves.U, Moves.R_PRIME, Moves.U_PRIME, Moves.F_WIDE_PRIME
 ]
 
 line = [
@@ -24,7 +23,7 @@ right_corners = [
     Moves.R, Moves.U_PRIME, Moves.R_WIDE_PRIME, Moves.F
 ]
 
-diagonal_corner = [
+diagonal_corners = [
     Moves.R_PRIME, Moves.F, Moves.R, Moves.B_PRIME,
     Moves.R_PRIME, Moves.F_PRIME, Moves.R, Moves.B
 ]
