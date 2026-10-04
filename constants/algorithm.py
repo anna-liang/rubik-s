@@ -29,4 +29,5 @@ class Moves(Enum):
     # B_WIDE_PRIME = 25
     X = 26
     Y = 27
-    Z = 28
+    Y_PRIME = 28
+    Z = 29

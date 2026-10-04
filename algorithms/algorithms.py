@@ -304,6 +304,11 @@ def apply_move(cube, move):
             faces[4] = faces[3]
             faces[3] = faces[2]
             faces[2] = temp
+        case Moves.Y:
+            # counterclockwise along U
+            apply_move(Moves.Y)
+            apply_move(Moves.Y)
+            apply_move(Moves.Y)
         case Moves.Z:
             # clockwise along F
             temp = faces[0]
