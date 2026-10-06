@@ -297,6 +297,8 @@ def apply_move(cube, move):
             faces[1] = faces[5]
             faces[5] = faces[3]
             faces[3] = temp
+            cw(faces[4])
+            ccw(faces[2])
         case Moves.Y:
             # clockwise along U
             temp = faces[1]
@@ -304,11 +306,13 @@ def apply_move(cube, move):
             faces[4] = faces[3]
             faces[3] = faces[2]
             faces[2] = temp
-        case Moves.Y:
+            cw(faces[0])
+            ccw(faces[5])
+        case Moves.Y_PRIME:
             # counterclockwise along U
-            apply_move(Moves.Y)
-            apply_move(Moves.Y)
-            apply_move(Moves.Y)
+            apply_move(cube, Moves.Y)
+            apply_move(cube, Moves.Y)
+            apply_move(cube, Moves.Y)
         case Moves.Z:
             # clockwise along F
             temp = faces[0]
@@ -316,6 +320,8 @@ def apply_move(cube, move):
             faces[2] = faces[5]
             faces[5] = faces[4]
             faces[4] = temp
+            cw(faces[1])
+            ccw(faces[3])
         case _:
             raise ValueError(f"Move {move} not implemented yet.")
 
