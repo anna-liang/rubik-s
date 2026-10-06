@@ -68,12 +68,17 @@ def cross(cube):
             apply_move(cube, Moves.Y_PRIME)
             apply_algorithm(cube, front_right_algo)
             apply_move(cube, Moves.Y)
-            orient_and_fill_cross(cube, 4)
+            orient_and_fill_cross(cube, 2)
         case x if x == faces[2][3]:
             apply_move(cube, Moves.Y_PRIME)
             apply_algorithm(cube, front_left_algo)
             apply_move(cube, Moves.Y)
-            orient_and_fill_cross(cube, 4)
+            orient_and_fill_cross(cube, 2)
+        case x if x == faces[2][7]:
+            apply_move(cube, Moves.Y_PRIME)
+            apply_algorithm(cube, front_bottom_algo)
+            apply_move(cube, Moves.Y)
+            orient_and_fill_cross(cube, 2)
         case x if x == faces[3][1]:
             apply_move(cube, Moves.Y)
             apply_move(cube, Moves.Y)
@@ -87,14 +92,21 @@ def cross(cube):
             apply_algorithm(cube, front_right_algo)
             apply_move(cube, Moves.Y)
             apply_move(cube, Moves.Y)
-            orient_and_fill_cross(cube, 1)
+            orient_and_fill_cross(cube, 3)
         case x if x == faces[3][3]:
             apply_move(cube, Moves.Y)
             apply_move(cube, Moves.Y)
             apply_algorithm(cube, front_left_algo)
             apply_move(cube, Moves.Y)
             apply_move(cube, Moves.Y)
-            orient_and_fill_cross(cube, 1)
+            orient_and_fill_cross(cube, 3)
+        case x if x == faces[3][7]:
+            apply_move(cube, Moves.Y)
+            apply_move(cube, Moves.Y)
+            apply_algorithm(cube, front_bottom_algo)
+            apply_move(cube, Moves.Y)
+            apply_move(cube, Moves.Y)
+            orient_and_fill_cross(cube, 3)
         case x if x == faces[4][1]:
             apply_move(cube, Moves.Y)
             apply_algorithm(cube, front_top_algo)
@@ -109,7 +121,12 @@ def cross(cube):
             apply_move(cube, Moves.Y)
             apply_algorithm(cube, front_left_algo)
             apply_move(cube, Moves.Y_PRIME)
-            orient_and_fill_cross(cube, 2)
+            orient_and_fill_cross(cube, 4)
+        case x if x == faces[4][7]:
+            apply_move(cube, Moves.Y)
+            apply_algorithm(cube, front_bottom_algo)
+            apply_move(cube, Moves.Y_PRIME)
+            orient_and_fill_cross(cube, 4)
         case x if x == faces[5][1]:
             apply_move(cube, Moves.F)
             apply_move(cube, Moves.F)
