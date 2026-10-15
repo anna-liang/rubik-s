@@ -820,5 +820,753 @@ class TestAlgorithmsCross(unittest.TestCase):
         ]
         self.assertEqual(initial_cube.faces, expected_faces, f"Wrong after left face bottom edge.")
 
+    def test_cross_back_face_top(self):
+        initial_cube = Cube([
+            [
+                Colour.RED, Colour.BLUE, Colour.ORANGE,
+                Colour.BLUE, Colour.WHITE, Colour.WHITE,
+                Colour.GREEN, Colour.GREEN, Colour.WHITE
+            ],
+            [
+                Colour.RED, Colour.WHITE, Colour.ORANGE,
+                Colour.RED, Colour.RED, Colour.WHITE,
+                Colour.YELLOW, Colour.RED, Colour.WHITE,
+            ],
+            [
+                Colour.WHITE, Colour.ORANGE, Colour.YELLOW,
+                Colour.BLUE, Colour.GREEN, Colour.WHITE,
+                Colour.YELLOW, Colour.GREEN, Colour.GREEN
+            ],
+            [
+                Colour.BLUE, Colour.YELLOW, Colour.BLUE,
+                Colour.GREEN, Colour.ORANGE, Colour.RED,
+                Colour.YELLOW, Colour.ORANGE, Colour.BLUE
+            ],
+            [
+                Colour.GREEN, Colour.ORANGE, Colour.WHITE,
+                Colour.BLUE, Colour.BLUE, Colour.ORANGE,
+                Colour.RED, Colour.RED, Colour.ORANGE
+            ],
+            [
+                Colour.ORANGE, Colour.YELLOW, Colour.GREEN,
+                Colour.YELLOW, Colour.YELLOW, Colour.GREEN,
+                Colour.RED, Colour.YELLOW, Colour.BLUE
+            ]
+        ])
+        cross_algorithms.cross(initial_cube)
+        expected_faces = [
+            [
+                Colour.WHITE, Colour.GREEN, Colour.GREEN,
+                Colour.GREEN, Colour.WHITE, Colour.GREEN,
+                Colour.YELLOW, Colour.BLUE, Colour.ORANGE
+            ],
+            [
+                Colour.BLUE, Colour.ORANGE, Colour.GREEN,
+                Colour.RED, Colour.RED, Colour.ORANGE,
+                Colour.YELLOW, Colour.RED, Colour.WHITE,
+            ],
+            [
+                Colour.BLUE, Colour.ORANGE, Colour.ORANGE,
+                Colour.BLUE, Colour.GREEN, Colour.WHITE,
+                Colour.YELLOW, Colour.GREEN, Colour.GREEN
+            ],
+            [
+                Colour.WHITE, Colour.WHITE, Colour.RED,
+                Colour.WHITE, Colour.ORANGE, Colour.RED,
+                Colour.YELLOW, Colour.ORANGE, Colour.BLUE
+            ],
+            [
+                Colour.WHITE, Colour.RED, Colour.RED,
+                Colour.WHITE, Colour.BLUE, Colour.BLUE,
+                Colour.ORANGE, Colour.BLUE, Colour.RED,
+            ],
+            [
+                Colour.ORANGE, Colour.YELLOW, Colour.BLUE,
+                Colour.YELLOW, Colour.YELLOW, Colour.YELLOW,
+                Colour.RED, Colour.YELLOW, Colour.GREEN
+            ]
+        ]
+        self.assertEqual(initial_cube.faces, expected_faces, f"Wrong after back face top edge.")
+
+    def test_cross_back_face_right(self):
+        initial_cube = Cube([
+            [
+                Colour.RED, Colour.GREEN, Colour.GREEN,
+                Colour.RED, Colour.WHITE, Colour.GREEN,
+                Colour.RED, Colour.BLUE, Colour.ORANGE
+            ],
+            [
+                Colour.WHITE, Colour.ORANGE, Colour.GREEN,
+                Colour.GREEN, Colour.RED, Colour.ORANGE,
+                Colour.YELLOW, Colour.RED, Colour.WHITE,
+            ],
+            [
+                Colour.YELLOW, Colour.BLUE, Colour.BLUE,
+                Colour.ORANGE, Colour.GREEN, Colour.ORANGE,
+                Colour.YELLOW, Colour.GREEN, Colour.GREEN
+            ],
+            [
+                Colour.WHITE, Colour.WHITE, Colour.GREEN,
+                Colour.WHITE, Colour.ORANGE, Colour.YELLOW,
+                Colour.BLUE, Colour.WHITE, Colour.ORANGE
+            ],
+            [
+                Colour.WHITE, Colour.RED, Colour.RED,
+                Colour.WHITE, Colour.BLUE, Colour.BLUE,
+                Colour.ORANGE, Colour.BLUE, Colour.RED,
+            ],
+            [
+                Colour.ORANGE, Colour.YELLOW, Colour.BLUE,
+                Colour.YELLOW, Colour.YELLOW, Colour.YELLOW,
+                Colour.BLUE, Colour.RED, Colour.YELLOW
+            ]
+        ])
+        cross_algorithms.cross(initial_cube)
+        expected_faces = [
+            [
+                Colour.YELLOW, Colour.RED, Colour.YELLOW,
+                Colour.RED, Colour.WHITE, Colour.GREEN,
+                Colour.RED, Colour.GREEN, Colour.GREEN
+            ],
+            [
+                Colour.WHITE, Colour.RED, Colour.RED,
+                Colour.GREEN, Colour.RED, Colour.ORANGE,
+                Colour.YELLOW, Colour.RED, Colour.WHITE,
+            ],
+            [
+                Colour.RED, Colour.BLUE, Colour.BLUE,
+                Colour.BLUE, Colour.GREEN, Colour.ORANGE,
+                Colour.BLUE, Colour.GREEN, Colour.GREEN
+            ],
+            [
+                Colour.GREEN, Colour.WHITE, Colour.BLUE,
+                Colour.BLUE, Colour.ORANGE, Colour.WHITE,
+                Colour.ORANGE, Colour.ORANGE, Colour.YELLOW
+            ],
+            [
+                Colour.WHITE, Colour.WHITE, Colour.RED,
+                Colour.WHITE, Colour.BLUE, Colour.ORANGE,
+                Colour.ORANGE, Colour.BLUE, Colour.GREEN,
+            ],
+            [
+                Colour.ORANGE, Colour.YELLOW, Colour.BLUE,
+                Colour.YELLOW, Colour.YELLOW, Colour.YELLOW,
+                Colour.ORANGE, Colour.YELLOW, Colour.WHITE
+            ]
+        ]
+        self.assertEqual(initial_cube.faces, expected_faces, f"Wrong after back face right edge.")
+
+    def test_cross_back_face_left(self):
+        initial_cube = Cube([
+            [
+                Colour.GREEN, Colour.RED, Colour.BLUE,
+                Colour.RED, Colour.WHITE, Colour.WHITE,
+                Colour.RED, Colour.GREEN, Colour.YELLOW
+            ],
+            [
+                Colour.WHITE, Colour.RED, Colour.ORANGE,
+                Colour.GREEN, Colour.RED, Colour.GREEN,
+                Colour.YELLOW, Colour.RED, Colour.WHITE,
+            ],
+            [
+                Colour.WHITE, Colour.BLUE, Colour.BLUE,
+                Colour.WHITE, Colour.GREEN, Colour.ORANGE,
+                Colour.ORANGE, Colour.GREEN, Colour.GREEN
+            ],
+            [
+                Colour.YELLOW, Colour.WHITE, Colour.RED,
+                Colour.YELLOW, Colour.ORANGE, Colour.ORANGE,
+                Colour.YELLOW, Colour.ORANGE, Colour.WHITE
+            ],
+            [
+                Colour.BLUE, Colour.BLUE, Colour.RED,
+                Colour.WHITE, Colour.BLUE, Colour.BLUE,
+                Colour.GREEN, Colour.ORANGE, Colour.RED,
+            ],
+            [
+                Colour.ORANGE, Colour.YELLOW, Colour.ORANGE,
+                Colour.YELLOW, Colour.YELLOW, Colour.BLUE,
+                Colour.BLUE, Colour.YELLOW, Colour.GREEN
+            ]
+        ])
+        cross_algorithms.cross(initial_cube)
+        expected_faces = [
+            [
+                Colour.GREEN, Colour.RED, Colour.ORANGE,
+                Colour.RED, Colour.WHITE, Colour.BLUE,
+                Colour.YELLOW, Colour.WHITE, Colour.RED
+            ],
+            [
+                Colour.BLUE, Colour.BLUE, Colour.YELLOW,
+                Colour.GREEN, Colour.RED, Colour.GREEN,
+                Colour.YELLOW, Colour.RED, Colour.GREEN,
+            ],
+            [
+                Colour.WHITE, Colour.BLUE, Colour.ORANGE,
+                Colour.WHITE, Colour.GREEN, Colour.ORANGE,
+                Colour.ORANGE, Colour.GREEN, Colour.GREEN
+            ],
+            [
+                Colour.WHITE, Colour.WHITE, Colour.RED,
+                Colour.GREEN, Colour.ORANGE, Colour.ORANGE,
+                Colour.WHITE, Colour.ORANGE, Colour.WHITE
+            ],
+            [
+                Colour.BLUE, Colour.ORANGE, Colour.GREEN,
+                Colour.RED, Colour.BLUE, Colour.WHITE,
+                Colour.RED, Colour.BLUE, Colour.RED,
+            ],
+            [
+                Colour.ORANGE, Colour.YELLOW, Colour.YELLOW,
+                Colour.YELLOW, Colour.YELLOW, Colour.YELLOW,
+                Colour.BLUE, Colour.YELLOW, Colour.BLUE
+            ]
+        ]
+        self.assertEqual(initial_cube.faces, expected_faces, f"Wrong after back face left edge.")
+
+    def test_cross_back_face_bottom(self):
+        initial_cube = Cube([
+            [
+                Colour.WHITE, Colour.GREEN, Colour.WHITE,
+                Colour.RED, Colour.WHITE, Colour.BLUE,
+                Colour.YELLOW, Colour.ORANGE, Colour.RED
+            ],
+            [
+                Colour.BLUE, Colour.WHITE, Colour.YELLOW,
+                Colour.GREEN, Colour.RED, Colour.GREEN,
+                Colour.GREEN, Colour.RED, Colour.GREEN,
+            ],
+            [
+                Colour.RED, Colour.BLUE, Colour.ORANGE,
+                Colour.RED, Colour.GREEN, Colour.ORANGE,
+                Colour.WHITE, Colour.ORANGE, Colour.ORANGE
+            ],
+            [
+                Colour.GREEN, Colour.WHITE, Colour.GREEN,
+                Colour.WHITE, Colour.ORANGE, Colour.WHITE,
+                Colour.WHITE, Colour.YELLOW, Colour.BLUE
+            ],
+            [
+                Colour.BLUE, Colour.ORANGE, Colour.ORANGE,
+                Colour.RED, Colour.BLUE, Colour.BLUE,
+                Colour.RED, Colour.BLUE, Colour.RED,
+            ],
+            [
+                Colour.YELLOW, Colour.YELLOW, Colour.YELLOW,
+                Colour.YELLOW, Colour.YELLOW, Colour.YELLOW,
+                Colour.ORANGE, Colour.GREEN, Colour.BLUE
+            ]
+        ])
+        cross_algorithms.cross(initial_cube)
+        expected_faces = [
+            [
+                Colour.YELLOW, Colour.BLUE, Colour.RED,
+                Colour.YELLOW, Colour.WHITE, Colour.RED,
+                Colour.RED, Colour.BLUE, Colour.ORANGE
+            ],
+            [
+                Colour.GREEN, Colour.WHITE, Colour.GREEN,
+                Colour.WHITE, Colour.RED, Colour.GREEN,
+                Colour.BLUE, Colour.RED, Colour.GREEN,
+            ],
+            [
+                Colour.ORANGE, Colour.ORANGE, Colour.WHITE,
+                Colour.ORANGE, Colour.GREEN, Colour.GREEN,
+                Colour.ORANGE, Colour.GREEN, Colour.YELLOW
+            ],
+            [
+                Colour.BLUE, Colour.ORANGE, Colour.GREEN,
+                Colour.ORANGE, Colour.ORANGE, Colour.GREEN,
+                Colour.WHITE, Colour.WHITE, Colour.WHITE
+            ],
+            [
+                Colour.WHITE, Colour.BLUE, Colour.YELLOW,
+                Colour.RED, Colour.BLUE, Colour.WHITE,
+                Colour.RED, Colour.BLUE, Colour.RED,
+            ],
+            [
+                Colour.ORANGE, Colour.YELLOW, Colour.YELLOW,
+                Colour.YELLOW, Colour.YELLOW, Colour.YELLOW,
+                Colour.BLUE, Colour.RED, Colour.BLUE
+            ]
+        ]
+        self.assertEqual(initial_cube.faces, expected_faces, f"Wrong after back face bottom edge.")
+
+    def test_cross_right_face_top(self):
+        initial_cube = Cube([
+            [
+                Colour.GREEN, Colour.RED, Colour.YELLOW,
+                Colour.RED, Colour.WHITE, Colour.BLUE,
+                Colour.WHITE, Colour.RED, Colour.RED
+            ],
+            [
+                Colour.BLUE, Colour.BLUE, Colour.WHITE,
+                Colour.WHITE, Colour.RED, Colour.GREEN,
+                Colour.BLUE, Colour.RED, Colour.WHITE,
+            ],
+            [
+                Colour.RED, Colour.GREEN, Colour.RED,
+                Colour.WHITE, Colour.GREEN, Colour.BLUE,
+                Colour.GREEN, Colour.GREEN, Colour.YELLOW
+            ],
+            [
+                Colour.RED, Colour.WHITE, Colour.YELLOW,
+                Colour.BLUE, Colour.ORANGE, Colour.ORANGE,
+                Colour.BLUE, Colour.ORANGE, Colour.ORANGE
+            ],
+            [
+                Colour.GREEN, Colour.YELLOW, Colour.BLUE,
+                Colour.WHITE, Colour.BLUE, Colour.ORANGE,
+                Colour.GREEN, Colour.ORANGE, Colour.ORANGE,
+            ],
+            [
+                Colour.ORANGE, Colour.YELLOW, Colour.ORANGE,
+                Colour.YELLOW, Colour.YELLOW, Colour.GREEN,
+                Colour.YELLOW, Colour.YELLOW, Colour.WHITE
+            ]
+        ])
+        cross_algorithms.cross(initial_cube)
+        expected_faces = [
+            [
+                Colour.RED, Colour.RED, Colour.RED,
+                Colour.WHITE, Colour.WHITE, Colour.GREEN,
+                Colour.GREEN, Colour.RED, Colour.WHITE
+            ],
+            [
+                Colour.ORANGE, Colour.WHITE, Colour.BLUE,
+                Colour.WHITE, Colour.RED, Colour.BLUE,
+                Colour.BLUE, Colour.RED, Colour.WHITE,
+            ],
+            [
+                Colour.BLUE, Colour.GREEN, Colour.WHITE,
+                Colour.WHITE, Colour.GREEN, Colour.BLUE,
+                Colour.GREEN, Colour.GREEN, Colour.YELLOW
+            ],
+            [
+                Colour.WHITE, Colour.GREEN, Colour.YELLOW,
+                Colour.RED, Colour.ORANGE, Colour.ORANGE,
+                Colour.YELLOW, Colour.ORANGE, Colour.ORANGE
+            ],
+            [
+                Colour.ORANGE, Colour.ORANGE, Colour.BLUE,
+                Colour.ORANGE, Colour.BLUE, Colour.BLUE,
+                Colour.RED, Colour.BLUE, Colour.RED,
+            ],
+            [
+                Colour.ORANGE, Colour.YELLOW, Colour.GREEN,
+                Colour.YELLOW, Colour.YELLOW, Colour.YELLOW,
+                Colour.YELLOW, Colour.YELLOW, Colour.GREEN
+            ]
+        ]
+        self.assertEqual(initial_cube.faces, expected_faces, f"Wrong after right face top edge.")
+
+    def test_cross_right_face_right(self):
+        initial_cube = Cube([
+            [
+                Colour.ORANGE, Colour.ORANGE, Colour.YELLOW,
+                Colour.BLUE, Colour.WHITE, Colour.RED,
+                Colour.YELLOW, Colour.WHITE, Colour.BLUE
+            ],
+            [
+                Colour.GREEN, Colour.BLUE, Colour.RED,
+                Colour.RED, Colour.RED, Colour.BLUE,
+                Colour.RED, Colour.RED, Colour.WHITE,
+            ],
+            [
+                Colour.WHITE, Colour.RED, Colour.RED,
+                Colour.GREEN, Colour.GREEN, Colour.WHITE,
+                Colour.ORANGE, Colour.ORANGE, Colour.BLUE
+            ],
+            [
+                Colour.ORANGE, Colour.WHITE, Colour.GREEN,
+                Colour.GREEN, Colour.ORANGE, Colour.WHITE,
+                Colour.YELLOW, Colour.ORANGE, Colour.WHITE
+            ],
+            [
+                Colour.YELLOW, Colour.GREEN, Colour.GREEN,
+                Colour.ORANGE, Colour.BLUE, Colour.YELLOW,
+                Colour.RED, Colour.BLUE, Colour.ORANGE,
+            ],
+            [
+                Colour.WHITE, Colour.YELLOW, Colour.GREEN,
+                Colour.GREEN, Colour.YELLOW, Colour.YELLOW,
+                Colour.BLUE, Colour.YELLOW, Colour.BLUE
+            ]
+        ])
+        cross_algorithms.cross(initial_cube)
+        expected_faces = [
+            [
+                Colour.WHITE, Colour.RED, Colour.BLUE,
+                Colour.GREEN, Colour.WHITE, Colour.WHITE,
+                Colour.BLUE, Colour.ORANGE, Colour.ORANGE
+            ],
+            [
+                Colour.WHITE, Colour.WHITE, Colour.GREEN,
+                Colour.WHITE, Colour.RED, Colour.BLUE,
+                Colour.BLUE, Colour.RED, Colour.WHITE,
+            ],
+            [
+                Colour.BLUE, Colour.ORANGE, Colour.ORANGE,
+                Colour.WHITE, Colour.GREEN, Colour.GREEN,
+                Colour.YELLOW, Colour.GREEN, Colour.YELLOW
+            ],
+            [
+                Colour.YELLOW, Colour.GREEN, Colour.RED,
+                Colour.RED, Colour.ORANGE, Colour.RED,
+                Colour.YELLOW, Colour.ORANGE, Colour.RED
+            ],
+            [
+                Colour.WHITE, Colour.BLUE, Colour.RED,
+                Colour.ORANGE, Colour.BLUE, Colour.BLUE,
+                Colour.RED, Colour.BLUE, Colour.GREEN,
+            ],
+            [
+                Colour.ORANGE, Colour.YELLOW, Colour.GREEN,
+                Colour.YELLOW, Colour.YELLOW, Colour.YELLOW,
+                Colour.GREEN, Colour.YELLOW, Colour.ORANGE
+            ]
+        ]
+        self.assertEqual(initial_cube.faces, expected_faces, f"Wrong after right face right edge.")
+
+    def test_cross_right_face_left(self):
+        initial_cube = Cube([
+            [
+                Colour.GREEN, Colour.WHITE, Colour.YELLOW,
+                Colour.GREEN, Colour.WHITE, Colour.WHITE,
+                Colour.GREEN, Colour.BLUE, Colour.WHITE
+            ],
+            [
+                Colour.ORANGE, Colour.RED, Colour.BLUE,
+                Colour.RED, Colour.RED, Colour.BLUE,
+                Colour.BLUE, Colour.RED, Colour.RED,
+            ],
+            [
+                Colour.YELLOW, Colour.RED, Colour.WHITE,
+                Colour.GREEN, Colour.GREEN, Colour.WHITE,
+                Colour.YELLOW, Colour.GREEN, Colour.YELLOW
+            ],
+            [
+                Colour.GREEN, Colour.BLUE, Colour.ORANGE,
+                Colour.BLUE, Colour.ORANGE, Colour.WHITE,
+                Colour.RED, Colour.ORANGE, Colour.BLUE
+            ],
+            [
+                Colour.ORANGE, Colour.ORANGE, Colour.RED,
+                Colour.YELLOW, Colour.BLUE, Colour.ORANGE,
+                Colour.GREEN, Colour.ORANGE, Colour.BLUE,
+            ],
+            [
+                Colour.ORANGE, Colour.YELLOW, Colour.WHITE,
+                Colour.YELLOW, Colour.YELLOW, Colour.GREEN,
+                Colour.RED, Colour.YELLOW, Colour.WHITE
+            ]
+        ])
+        cross_algorithms.cross(initial_cube)
+        expected_faces = [
+            [
+                Colour.YELLOW, Colour.WHITE, Colour.BLUE,
+                Colour.WHITE, Colour.WHITE, Colour.GREEN,
+                Colour.GREEN, Colour.BLUE, Colour.WHITE
+            ],
+            [
+                Colour.ORANGE, Colour.RED, Colour.RED,
+                Colour.RED, Colour.RED, Colour.BLUE,
+                Colour.BLUE, Colour.RED, Colour.WHITE,
+            ],
+            [
+                Colour.GREEN, Colour.BLUE, Colour.WHITE,
+                Colour.GREEN, Colour.GREEN, Colour.WHITE,
+                Colour.YELLOW, Colour.GREEN, Colour.YELLOW
+            ],
+            [
+                Colour.WHITE, Colour.ORANGE, Colour.RED,
+                Colour.RED, Colour.ORANGE, Colour.WHITE,
+                Colour.YELLOW, Colour.ORANGE, Colour.BLUE
+            ],
+            [
+                Colour.BLUE, Colour.ORANGE, Colour.ORANGE,
+                Colour.ORANGE, Colour.BLUE, Colour.GREEN,
+                Colour.RED, Colour.BLUE, Colour.GREEN,
+            ],
+            [
+                Colour.ORANGE, Colour.YELLOW, Colour.GREEN,
+                Colour.YELLOW, Colour.YELLOW, Colour.YELLOW,
+                Colour.RED, Colour.YELLOW, Colour.ORANGE
+            ]
+        ]
+        self.assertEqual(initial_cube.faces, expected_faces, f"Wrong after right face left edge.")
+
+    def test_cross_right_face_bottom(self):
+        initial_cube = Cube([
+            [
+                Colour.ORANGE, Colour.WHITE, Colour.GREEN,
+                Colour.BLUE, Colour.WHITE, Colour.RED,
+                Colour.WHITE, Colour.ORANGE, Colour.BLUE
+            ],
+            [
+                Colour.RED, Colour.WHITE, Colour.RED,
+                Colour.WHITE, Colour.RED, Colour.BLUE,
+                Colour.ORANGE, Colour.BLUE, Colour.BLUE,
+            ],
+            [
+                Colour.GREEN, Colour.RED, Colour.GREEN,
+                Colour.GREEN, Colour.GREEN, Colour.BLUE,
+                Colour.ORANGE, Colour.GREEN, Colour.BLUE
+            ],
+            [
+                Colour.ORANGE, Colour.RED, Colour.YELLOW,
+                Colour.ORANGE, Colour.ORANGE, Colour.WHITE,
+                Colour.RED, Colour.ORANGE, Colour.WHITE
+            ],
+            [
+                Colour.YELLOW, Colour.GREEN, Colour.WHITE,
+                Colour.ORANGE, Colour.BLUE, Colour.GREEN,
+                Colour.RED, Colour.YELLOW, Colour.GREEN,
+            ],
+            [
+                Colour.YELLOW, Colour.YELLOW, Colour.WHITE,
+                Colour.YELLOW, Colour.YELLOW, Colour.RED,
+                Colour.BLUE, Colour.YELLOW, Colour.YELLOW
+            ]
+        ])
+        cross_algorithms.cross(initial_cube)
+        expected_faces = [
+            [
+                Colour.WHITE, Colour.WHITE, Colour.RED,
+                Colour.ORANGE, Colour.WHITE, Colour.BLUE,
+                Colour.WHITE, Colour.YELLOW, Colour.YELLOW
+            ],
+            [
+                Colour.BLUE, Colour.BLUE, Colour.ORANGE,
+                Colour.RED, Colour.RED, Colour.WHITE,
+                Colour.YELLOW, Colour.RED, Colour.ORANGE,
+            ],
+            [
+                Colour.RED, Colour.WHITE, Colour.RED,
+                Colour.GREEN, Colour.GREEN, Colour.BLUE,
+                Colour.ORANGE, Colour.GREEN, Colour.RED
+            ],
+            [
+                Colour.BLUE, Colour.RED, Colour.GREEN,
+                Colour.RED, Colour.ORANGE, Colour.WHITE,
+                Colour.GREEN, Colour.ORANGE, Colour.WHITE
+            ],
+            [
+                Colour.BLUE, Colour.ORANGE, Colour.YELLOW,
+                Colour.BLUE, Colour.BLUE, Colour.GREEN,
+                Colour.GREEN, Colour.GREEN, Colour.WHITE,
+            ],
+            [
+                Colour.GREEN, Colour.YELLOW, Colour.YELLOW,
+                Colour.YELLOW, Colour.YELLOW, Colour.ORANGE,
+                Colour.BLUE, Colour.YELLOW, Colour.ORANGE
+            ]
+        ]
+        self.assertEqual(initial_cube.faces, expected_faces, f"Wrong after right face bottom edge.")
+
+    def test_cross_bottom_face_top(self):
+        initial_cube = Cube([
+            [
+                Colour.RED, Colour.BLUE, Colour.YELLOW,
+                Colour.WHITE, Colour.WHITE, Colour.ORANGE,
+                Colour.GREEN, Colour.ORANGE, Colour.ORANGE
+            ],
+            [
+                Colour.RED, Colour.WHITE, Colour.GREEN,
+                Colour.WHITE, Colour.RED, Colour.RED,
+                Colour.GREEN, Colour.BLUE, Colour.BLUE,
+            ],
+            [
+                Colour.BLUE, Colour.RED, Colour.YELLOW,
+                Colour.GREEN, Colour.GREEN, Colour.BLUE,
+                Colour.ORANGE, Colour.GREEN, Colour.RED
+            ],
+            [
+                Colour.ORANGE, Colour.ORANGE, Colour.YELLOW,
+                Colour.RED, Colour.ORANGE, Colour.WHITE,
+                Colour.ORANGE, Colour.ORANGE, Colour.WHITE
+            ],
+            [
+                Colour.WHITE, Colour.GREEN, Colour.GREEN,
+                Colour.GREEN, Colour.BLUE, Colour.BLUE,
+                Colour.RED, Colour.RED, Colour.BLUE,
+            ],
+            [
+                Colour.WHITE, Colour.YELLOW, Colour.WHITE,
+                Colour.YELLOW, Colour.YELLOW, Colour.YELLOW,
+                Colour.BLUE, Colour.YELLOW, Colour.YELLOW
+            ]
+        ])
+        cross_algorithms.cross(initial_cube)
+        expected_faces = [
+            [
+                Colour.YELLOW, Colour.ORANGE, Colour.GREEN,
+                Colour.BLUE, Colour.WHITE, Colour.YELLOW,
+                Colour.RED, Colour.WHITE, Colour.YELLOW
+            ],
+            [
+                Colour.BLUE, Colour.RED, Colour.ORANGE,
+                Colour.RED, Colour.RED, Colour.RED,
+                Colour.GREEN, Colour.WHITE, Colour.RED,
+            ],
+            [
+                Colour.ORANGE, Colour.ORANGE, Colour.YELLOW,
+                Colour.GREEN, Colour.GREEN, Colour.GREEN,
+                Colour.ORANGE, Colour.GREEN, Colour.WHITE
+            ],
+            [
+                Colour.RED, Colour.GREEN, Colour.GREEN,
+                Colour.WHITE, Colour.ORANGE, Colour.WHITE,
+                Colour.RED, Colour.ORANGE, Colour.WHITE
+            ],
+            [
+                Colour.BLUE, Colour.RED, Colour.YELLOW,
+                Colour.BLUE, Colour.BLUE, Colour.BLUE,
+                Colour.GREEN, Colour.BLUE, Colour.BLUE,
+            ],
+            [
+                Colour.ORANGE, Colour.ORANGE, Colour.WHITE,
+                Colour.YELLOW, Colour.YELLOW, Colour.YELLOW,
+                Colour.BLUE, Colour.YELLOW, Colour.WHITE
+            ]
+        ]
+        self.assertEqual(initial_cube.faces, expected_faces, f"Wrong after bottom face top edge.")
+
+    def test_cross_bottom_face_right(self):
+        initial_cube = Cube([
+            [
+                Colour.ORANGE, Colour.ORANGE, Colour.YELLOW,
+                Colour.BLUE, Colour.WHITE, Colour.ORANGE,
+                Colour.RED, Colour.WHITE, Colour.WHITE
+            ],
+            [
+                Colour.BLUE, Colour.RED, Colour.GREEN,
+                Colour.WHITE, Colour.RED, Colour.WHITE,
+                Colour.RED, Colour.RED, Colour.WHITE,
+            ],
+            [
+                Colour.WHITE, Colour.ORANGE, Colour.YELLOW,
+                Colour.BLUE, Colour.GREEN, Colour.GREEN,
+                Colour.GREEN, Colour.BLUE, Colour.BLUE
+            ],
+            [
+                Colour.BLUE, Colour.WHITE, Colour.GREEN,
+                Colour.RED, Colour.ORANGE, Colour.RED,
+                Colour.YELLOW, Colour.ORANGE, Colour.ORANGE
+            ],
+            [
+                Colour.RED, Colour.GREEN, Colour.ORANGE,
+                Colour.BLUE, Colour.BLUE, Colour.GREEN,
+                Colour.ORANGE, Colour.GREEN, Colour.RED,
+            ],
+            [
+                Colour.WHITE, Colour.YELLOW, Colour.BLUE,
+                Colour.YELLOW, Colour.YELLOW, Colour.YELLOW,
+                Colour.YELLOW, Colour.YELLOW, Colour.GREEN
+            ]
+        ])
+        cross_algorithms.cross(initial_cube)
+        expected_faces = [
+            [
+                Colour.WHITE, Colour.WHITE, Colour.RED,
+                Colour.YELLOW, Colour.WHITE, Colour.BLUE,
+                Colour.YELLOW, Colour.ORANGE, Colour.ORANGE
+            ],
+            [
+                Colour.ORANGE, Colour.WHITE, Colour.GREEN,
+                Colour.RED, Colour.RED, Colour.RED,
+                Colour.YELLOW, Colour.RED, Colour.BLUE,
+            ],
+            [
+                Colour.BLUE, Colour.BLUE, Colour.GREEN,
+                Colour.GREEN, Colour.GREEN, Colour.BLUE,
+                Colour.ORANGE, Colour.GREEN, Colour.RED
+            ],
+            [
+                Colour.BLUE, Colour.RED, Colour.RED,
+                Colour.WHITE, Colour.ORANGE, Colour.WHITE,
+                Colour.GREEN, Colour.ORANGE, Colour.WHITE
+            ],
+            [
+                Colour.WHITE, Colour.ORANGE, Colour.YELLOW,
+                Colour.GREEN, Colour.BLUE, Colour.BLUE,
+                Colour.ORANGE, Colour.GREEN, Colour.RED,
+            ],
+            [
+                Colour.GREEN, Colour.YELLOW, Colour.YELLOW,
+                Colour.YELLOW, Colour.YELLOW, Colour.ORANGE,
+                Colour.BLUE, Colour.YELLOW, Colour.WHITE
+            ]
+        ]
+        self.assertEqual(initial_cube.faces, expected_faces, f"Wrong after bottom face right edge.")
+
+    def test_cross_bottom_face_left(self):
+        initial_cube = Cube([
+            [
+                Colour.ORANGE, Colour.ORANGE, Colour.YELLOW,
+                Colour.BLUE, Colour.WHITE, Colour.ORANGE,
+                Colour.GREEN, Colour.WHITE, Colour.WHITE
+            ],
+            [
+                Colour.RED, Colour.RED, Colour.GREEN,
+                Colour.RED, Colour.RED, Colour.WHITE,
+                Colour.YELLOW, Colour.RED, Colour.ORANGE,
+            ],
+            [
+                Colour.WHITE, Colour.ORANGE, Colour.YELLOW,
+                Colour.GREEN, Colour.GREEN, Colour.GREEN,
+                Colour.RED, Colour.ORANGE, Colour.BLUE
+            ],
+            [
+                Colour.BLUE, Colour.WHITE, Colour.GREEN,
+                Colour.RED, Colour.ORANGE, Colour.WHITE,
+                Colour.ORANGE, Colour.GREEN, Colour.BLUE
+            ],
+            [
+                Colour.RED, Colour.GREEN, Colour.ORANGE,
+                Colour.BLUE, Colour.BLUE, Colour.BLUE,
+                Colour.GREEN, Colour.BLUE, Colour.WHITE,
+            ],
+            [
+                Colour.RED, Colour.YELLOW, Colour.YELLOW,
+                Colour.YELLOW, Colour.YELLOW, Colour.YELLOW,
+                Colour.WHITE, Colour.YELLOW, Colour.BLUE
+            ]
+        ])
+        cross_algorithms.cross(initial_cube)
+        expected_faces = [
+            [
+                Colour.BLUE, Colour.YELLOW, Colour.GREEN,
+                Colour.WHITE, Colour.WHITE, Colour.ORANGE,
+                Colour.WHITE, Colour.ORANGE, Colour.YELLOW
+            ],
+            [
+                Colour.RED, Colour.GREEN, Colour.ORANGE,
+                Colour.WHITE, Colour.RED, Colour.WHITE,
+                Colour.GREEN, Colour.RED, Colour.ORANGE,
+            ],
+            [
+                Colour.WHITE, Colour.RED, Colour.GREEN,
+                Colour.BLUE, Colour.GREEN, Colour.GREEN,
+                Colour.YELLOW, Colour.ORANGE, Colour.WHITE
+            ],
+            [
+                Colour.RED, Colour.GREEN, Colour.ORANGE,
+                Colour.RED, Colour.ORANGE, Colour.RED,
+                Colour.RED, Colour.ORANGE, Colour.BLUE
+            ],
+            [
+                Colour.BLUE, Colour.WHITE, Colour.YELLOW,
+                Colour.BLUE, Colour.BLUE, Colour.GREEN,
+                Colour.GREEN, Colour.BLUE, Colour.BLUE,
+            ],
+            [
+                Colour.ORANGE, Colour.YELLOW, Colour.YELLOW,
+                Colour.BLUE, Colour.YELLOW, Colour.YELLOW,
+                Colour.RED, Colour.YELLOW, Colour.WHITE
+            ]
+        ]
+        self.assertEqual(initial_cube.faces, expected_faces, f"Wrong after bottom face left edge.")
+
 if __name__ == '__main__':
     unittest.main()
