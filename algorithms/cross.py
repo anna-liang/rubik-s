@@ -20,7 +20,7 @@ def orient_and_fill_cross(cube, starting_side):
     if current_index == 3:
         apply_move(cube, Moves.L)
         apply_move(cube, Moves.L)
-    elif current_index == 4:
+    elif current_index == 0:
         apply_move(cube, Moves.B)
         apply_move(cube, Moves.B)
     elif current_index == 1:
@@ -116,7 +116,7 @@ def cross(cube):
             apply_move(cube, Moves.Y)
             apply_algorithm(cube, front_right_algo)
             apply_move(cube, Moves.Y_PRIME)
-            orient_and_fill_cross(cube, 2)
+            orient_and_fill_cross(cube, 4)
         case x if x == faces[4][3]:
             apply_move(cube, Moves.Y)
             apply_algorithm(cube, front_left_algo)
@@ -127,22 +127,22 @@ def cross(cube):
             apply_algorithm(cube, front_bottom_algo)
             apply_move(cube, Moves.Y_PRIME)
             orient_and_fill_cross(cube, 4)
-        case x if x == faces[5][1]:
+        case x if x == faces[5][1] and faces[1][7] != faces[1][4]:
             apply_move(cube, Moves.F)
             apply_move(cube, Moves.F)
             orient_and_fill_cross(cube, 1)
-        case x if x == faces[5][5]:
+        case x if x == faces[5][5] and faces[4][7] != faces[4][4]:
             apply_move(cube, Moves.R)
             apply_move(cube, Moves.R)
             orient_and_fill_cross(cube, 4)
-        case x if x == faces[5][3]:
+        case x if x == faces[5][3] and faces[2][7] != faces[2][4]:
             apply_move(cube, Moves.L)
             apply_move(cube, Moves.L)
             orient_and_fill_cross(cube, 2)
-        case x if x == faces[5][7]:
-            apply_move(cube, Moves.B)
-            apply_move(cube, Moves.B)
-            orient_and_fill_cross(cube, 3)
+        # case x if x == faces[5][7]:
+        #     apply_move(cube, Moves.B)
+        #     apply_move(cube, Moves.B)
+        #     orient_and_fill_cross(cube, 3)
         case _:
             raise ValueError(f"Cannot match case for cross edge piece.")
 
